@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Position Button</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="styles.css" rel="stylesheet">
+  <style>
+   #heading{
+    text-align: center;
+    /* margin-left: 500px; */
+    margin-top: 100px;
+    color: white;
+}
+body {
+    background-color: rgb(0, 157, 255);
+}
+#randomButton {
+    position: absolute;
+    margin-left: 700px;
+    height : 50px;
+    width: 100px;
+  }
+#btn2{
+    margin-left: 600px;
+    height : 50px;
+    color: white;
+    width: 80px;
+}
+.buttons{
+    margin-top: 10px;
+    padding: 10px;
+}
+.video{
+    margin-left: 500px;
+    padding-top: 10px;
+    height: 400px;
+    width: 400px;
+}
+  </style>
+</head>
+<body>
+    <h1 id="heading">Do You wanna go out with me</h1>
+      <img src="https://gifdb.com/images/high/munchkin-cat-please-cufrw80ux14oacc2.gif" alt="bhukb" class="video">
+      <div class="buttons">
+
+<button id="randomButton" onmouseover="changePosition()" class="btn btn-primary" type="button">No</button>
+<a href="done.html"><button type="button" class="btn btn-primary" id="btn2">YES</button></a>
+</div>
+<script>
+  function changePosition() {
+    var button = document.getElementById('randomButton');
+    updatePosition(button);
+  }
+
+  function updatePosition(button) {
+    var maxX = 806 - button.offsetWidth;
+    var maxY = 730 - button.offsetHeight;
+
+    var randomX = Math.max(0, Math.min(maxX, Math.floor(Math.random() * maxX)));
+    var randomY = Math.max(0, Math.min(maxY, Math.floor(Math.random() * maxY)));
+
+    button.style.left = randomX + 'px';
+    button.style.top = randomY + 'px';
+  }
+
+  // Update position on window resize
+  window.addEventListener('resize', function() {
+    updatePosition(document.getElementById('randomButton'));
+  });
+</script>
+
+
+</body>
+</html>
